@@ -127,124 +127,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default to show our custom notification first
-            
-            // Create and show a custom notification
-            const notification = document.createElement('div');
-            notification.className = 'form-notification';
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <i class="fas fa-paper-plane"></i>
-                    <h3>Sending your message...</h3>
-                    <p>Please wait while we process your submission.</p>
-                </div>
-            `;
-            
-        // Add notification styles if not already in your CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            .form-notification {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.7);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 9999;
-            }
-            .notification-content {
-                background-color: var(--light-color);
-                padding: 30px;
-                border-radius: var(--border-radius);
-                text-align: center;
-                max-width: 400px;
-                box-shadow: var(--box-shadow);
-            }
-            .notification-content i {
-                font-size: 3rem;
-                color: var(--secondary-color);
-                margin-bottom: 15px;
-            }
-            .notification-content h3 {
-                margin-bottom: 10px;
-            }
-            .notification-content p {
-                margin-bottom: 20px;
-            }
-            .form-notification.success .fa-paper-plane {
-                display: none;
-            }
-            .form-notification.success .fa-check-circle {
-                display: inline-block;
-            }
-            .form-notification.error .fa-paper-plane {
-                display: none;
-            }
-            .form-notification.error .fa-exclamation-circle {
-                display: inline-block;
-            }
-        `;
+    // Form submission with Formspree using AJAX
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
         
-        document.body.appendChild(style);
-        document.body.appendChild(notification);
-        
-        // Submit the form data to Formspree
+        // Get form data
         const formData = new FormData(this);
         
-        fetch(this.action, {
-            method: 'POST',
+        // Submit form using fetch API
+        fetch("https://formspree.io/f/mblydbee", {
+            method: "POST",
             body: formData,
             headers: {
-                'Accept': 'application/json'
+                "Accept": "application/json"
             }
-        })
+        } )
         .then(response => {
             if (response.ok) {
-                return response.json();
+                // Show success message
+                alert("Thank you for your message! I'll get back to you soon.");
+                contactForm.reset(); // Reset the form
+            } else {
+                // Show error message
+                alert("Oops! There was a problem submitting your form. Please try again.");
             }
-            throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-            // Update notification to show success
-            notification.classList.add('success');
-            notification.querySelector('.notification-content').innerHTML = `
-                <i class="fas fa-check-circle"></i>
-                <h3>Thank you for your message!</h3>
-                <p>I'll get back to you as soon as possible.</p>
-                <button id="closeNotification">Close</button>
-            `;
-            
-            // Close notification when button is clicked
-            document.getElementById('closeNotification').addEventListener('click', function() {
-                notification.remove();
-            });
-            
-            // Reset the form
-            contactForm.reset();
         })
         .catch(error => {
-            // Update notification to show error
-            notification.classList.add('error');
-            notification.querySelector('.notification-content').innerHTML = `
-                <i class="fas fa-exclamation-circle"></i>
-                <h3>Oops! Something went wrong</h3>
-                <p>Please try again or contact me directly at bashinim2011@gmail.com</p>
-                <button id="closeNotification">Close</button>
-            `;
-            
-            // Close notification when button is clicked
-            document.getElementById('closeNotification').addEventListener('click', function() {
-                notification.remove();
-            });
-            
-            console.error('Error:', error);
+            // Show error message
+            alert("Oops! There was a problem submitting your form. Please try again.");
+            console.error(error);
         });
     });
 }
