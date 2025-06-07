@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // In a real implementation, this would send the form data to a server
             // For now, just show a success message
-            alert(`Thank you for your message, ${name}! \n\nThis is a demo form. In a real implementation, your message would be sent to Bashini Mahaarachchi.`);
+            alert(`Thank you for your message, ${name}! I will get back to you at the earliest opportunity.`);
             
             // Reset form
             contactForm.reset();
