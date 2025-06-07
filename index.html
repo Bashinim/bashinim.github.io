@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script type='text/javascript' src='https://private-us-east-1.manuscdn.com/X6B9taT4Sm5B37SHeyeqwmzJ4MzcjbgCItHl9XH6VWELf1e1qenUkteNTTu76rrd9I-Zz2BIfXwljakA12gLuQ=='></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bashini Mahaarachchi | Portfolio</title>
@@ -47,13 +47,10 @@
                     </div>
                     <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
                         <div class="profile-image-container">
-                            <img src="images/ProfilePicture_BM.jpg" 
-                                 alt="Bashini Mahaarachchi Profile Picture" 
-                                 class="profile-image"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="profile-image-placeholder" style="display: none;">
+                            <!-- Profile picture placeholder -->
+                            <div class="profile-image-placeholder">
                                 <i class="fas fa-user"></i>
-                                <span>BM</span>
+                                <span>Add Profile Picture</span>
                             </div>
                         </div>
                     </div>
@@ -85,7 +82,7 @@
                     <!-- Tab Content -->
                     <div class="tabs-content">
                         <!-- About Tab -->
-                        <div class="tab-pane active" id="about" data-aos="fade-up">
+                        <div class="tab-pane active" id="about">
                             <div class="about-content">
                                 <div class="about-text">
                                     <p>Data scientist with over 5 years of experience in analytical roles across diverse industries. Proven expertise in statistical modeling, predictive analytics, and deploying scalable machine learning (ML) models on the cloud. Skilled in scripting clean Python code, managing Git version control, working with big data and communicating complex technical concepts to non-technical stakeholders. Experienced in working with large language models (LLMs) and natural language processing (NLP) applications.</p>
@@ -94,24 +91,20 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                             <span>Berlin, Germany</span>
                                         </div>
-                                        
                                         <div class="location-item">
                                             <i class="fas fa-envelope"></i>
-                                            <div class="contact-privacy" id="email-contact">
-                                                <span class="privacy-mask" onclick="revealContact('email-contact', 'bashinim2011@gmail.com')">
-                                                    Click to reveal email
-                                                </span>
-                                                <canvas class="contact-canvas" style="display: none;"></canvas>
+                                            <div class="masked-info">
+                                                <span>Email: </span>
+                                                <button class="reveal-btn" id="revealEmail">Click to reveal</button>
+                                                <span class="hidden-info" id="hiddenEmail">bashinim2011@gmail.com</span>
                                             </div>
                                         </div>
-                                        
                                         <div class="location-item">
                                             <i class="fas fa-phone"></i>
-                                            <div class="contact-privacy" id="phone-contact">
-                                                <span class="privacy-mask" onclick="revealContact('phone-contact', '(+49)15226831682')">
-                                                    Click to reveal phone
-                                                </span>
-                                                <canvas class="contact-canvas" style="display: none;"></canvas>
+                                            <div class="masked-info">
+                                                <span>Phone: </span>
+                                                <button class="reveal-btn" id="revealPhone">Click to reveal</button>
+                                                <span class="hidden-info" id="hiddenPhone">(+49)15226831682</span>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +120,6 @@
                             </div>
                         </div>
                         
-                        <!-- [Rest of the tabs remain the same...] -->
                         <!-- Experience Tab -->
                         <div class="tab-pane" id="experience">
                             <div class="timeline">
@@ -208,7 +200,7 @@
                             </div>
                         </div>
                         
-                        <!-- Projects Tab (New) -->
+                        <!-- Projects Tab -->
                         <div class="tab-pane" id="projects">
                             <div class="projects-grid">
                                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
@@ -475,8 +467,7 @@
             </div>
         </section>
 
-                        
-                        <!-- Contact Section -->
+        <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="section-header" data-aos="fade-up">
@@ -491,11 +482,9 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Email</h3>
-                                <div class="contact-privacy" id="email-contact-section">
-                                    <span class="privacy-mask" onclick="revealContact('email-contact-section', 'bashinim2011@gmail.com')">
-                                        Click to reveal email
-                                    </span>
-                                    <canvas class="contact-canvas" style="display: none;"></canvas>
+                                <div class="masked-info">
+                                    <button class="reveal-btn" id="contactRevealEmail">Click to reveal email</button>
+                                    <span class="hidden-info" id="contactHiddenEmail">bashinim2011@gmail.com</span>
                                 </div>
                             </div>
                         </div>
@@ -505,11 +494,9 @@
                             </div>
                             <div class="contact-text">
                                 <h3>Phone</h3>
-                                <div class="contact-privacy" id="phone-contact-section">
-                                    <span class="privacy-mask" onclick="revealContact('phone-contact-section', '(+49)15226831682')">
-                                        Click to reveal phone
-                                    </span>
-                                    <canvas class="contact-canvas" style="display: none;"></canvas>
+                                <div class="masked-info">
+                                    <button class="reveal-btn" id="contactRevealPhone">Click to reveal phone</button>
+                                    <span class="hidden-info" id="contactHiddenPhone">(+49)15226831682</span>
                                 </div>
                             </div>
                         </div>
@@ -531,15 +518,32 @@
                             </a>
                         </div>
                     </div>
-                    <!-- [Rest of contact form remains the same...] -->
+                    <div class="contact-form" data-aos="fade-left" data-aos-delay="100">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- [Rest of the HTML remains the same...] -->
-    </div>
-
-            <!-- Footer -->
+        <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
