@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', function() {
             tabPanes.forEach(pane => pane.classList.remove('active'));
             
             // Show the selected tab pane
-            document.getElementById(`${tabToShow}-tab`).classList.add('active');
+            document.getElementById(`${tabToShow}`).classList.add('active');
             
             // Add animation to the tab content
-            document.getElementById(`${tabToShow}-tab`).style.animation = 'fadeIn 0.5s forwards';
+            document.getElementById(`${tabToShow}`).style.animation = 'fadeIn 0.5s forwards';
         });
     });
 
@@ -304,4 +304,27 @@ document.addEventListener('DOMContentLoaded', function() {
             input.click();
         });
     }
+       // Email reveal functionality
+    const emailButtons = document.querySelectorAll('.reveal-email');
+    emailButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const emailElement = this.nextElementSibling || document.querySelector('.hidden-email');
+            if (emailElement) {
+                emailElement.style.display = 'inline';
+                this.style.display = 'none';
+            }
+        });
+    });
+    
+    // Phone reveal functionality
+    const phoneButtons = document.querySelectorAll('.reveal-phone');
+    phoneButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const phoneElement = this.nextElementSibling || document.querySelector('.hidden-phone');
+            if (phoneElement) {
+                phoneElement.style.display = 'inline';
+                this.style.display = 'none';
+            }
+        });
+    });
 });
