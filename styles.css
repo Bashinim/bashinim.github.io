@@ -573,13 +573,26 @@ section {
 }
 
 /* Timeline */
+.timeline-item.aos-animate::before {
+    background-color: var(--secondary-color);
+    animation: fillDot 0.5s ease forwards;
+}
+
+@keyframes fillDot {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
 .timeline {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* .timeline::before {
+.timeline::before {
     content: '';
     position: absolute;
     top: 0;
@@ -588,7 +601,7 @@ section {
     width: 2px;
     height: 100%;
     background-color: var(--secondary-color);
-} */
+} 
 .experience-timeline::before {
     content: '';
     position: absolute;
