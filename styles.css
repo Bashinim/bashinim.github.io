@@ -1010,6 +1010,18 @@ section {
 
 .hidden-info {
     display: none;
+    user-select: none; /* Makes text unselectable */
+    margin-left: 10px; /* Adds space after the label */
+    position: relative;
+    background-image: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 500;
+}
+
+.masked-info span:first-child {
+    margin-right: 5px; 
 }
 
 /* Animations */
