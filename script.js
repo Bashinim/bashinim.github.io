@@ -1,5 +1,3 @@
-# Updated JavaScript with Privacy Protection
-
 ```javascript
 // JavaScript for portfolio website with tabbed navigation and privacy protection
 
@@ -309,23 +307,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 ```
-
-## Key JavaScript Features Added:
-
-### 1. Privacy Protection:
-- **`revealContact()` function**: Handles click-to-reveal functionality
-- **`generateContactImage()` function**: Creates canvas-based images from text
-- **Anti-copying protection**: Contact info appears as image, not selectable text
-- **Responsive canvas sizing**: Adapts to content length
-
-### 2. Enhanced Profile Image Handling:
-- **Error handling**: Graceful fallback when image fails to load
-- **Retry mechanism**: Option to load alternative image
-- **File upload support**: Click placeholder to upload new image
-- **Progressive enhancement**: Works with or without JavaScript
-
-### 3. Security Features:
-- **No text selection**: Contact information cannot be copied as text
-- **Canvas-based rendering**: Information is rendered as pixels, not DOM text
-- **User control**: Information only revealed when explicitly clicked
-- **Clear visual feedback**: Users understand the interaction model
