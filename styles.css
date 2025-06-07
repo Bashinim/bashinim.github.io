@@ -317,6 +317,17 @@ section {
     align-items: center;
 }
 
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    border: 3px solid var(--secondary-color);
+    object-fit: cover;
+    object-position: center; 
+}
+
 .profile-image-container {
     position: relative;
     width: 300px;
@@ -324,6 +335,9 @@ section {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-image-container::before {
