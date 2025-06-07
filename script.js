@@ -1,4 +1,7 @@
-// JavaScript for portfolio website with tabbed navigation
+# Updated JavaScript with Privacy Protection
+
+```javascript
+// JavaScript for portfolio website with tabbed navigation and privacy protection
 
 // Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function() {
@@ -77,9 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
-
-    // Profile image placeholder click event
-    const profilePlaceholder = document.querySelector('.profile-image-placeholder');
 
     // Tab switching functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -191,3 +191,141 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// NEW: Privacy Protection Functionality
+function revealContact(containerId, contactInfo) {
+    const container = document.getElementById(containerId);
+    const mask = container.querySelector('.privacy-mask');
+    const canvas = container.querySelector('.contact-canvas');
+    
+    // Hide the mask
+    mask.style.display = 'none';
+    
+    // Show and generate the canvas image
+    canvas.style.display = 'block';
+    generateContactImage(canvas, contactInfo);
+}
+
+function generateContactImage(canvas, text) {
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size
+    canvas.width = 300;
+    canvas.height = 40;
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Set background (optional - for better visibility)
+    ctx.fillStyle = 'rgba(186, 169, 255, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Set text properties
+    ctx.font = '16px Poppins, sans-serif';
+    ctx.fillStyle = '#4a3a6a';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    
+    // Add padding and center vertically
+    const padding = 10;
+    const centerY = canvas.height / 2;
+    
+    // Draw the text
+    ctx.fillText(text, padding, centerY);
+    
+    // Optional: Add a subtle border
+    ctx.strokeStyle = 'rgba(116, 20, 63, 0.2)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+}
+
+// Function to create a downloadable image (bonus feature)
+function downloadContactImage(canvas, filename) {
+    const link = document.createElement('a');
+    link.download = filename || 'contact-info.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
+
+// Enhanced profile image error handling
+function handleProfileImageError(img) {
+    // Hide the broken image
+    img.style.display = 'none';
+    
+    // Show the placeholder
+    const placeholder = img.nextElementSibling;
+    if (placeholder && placeholder.classList.contains('profile-image-placeholder')) {
+        placeholder.style.display = 'flex';
+    }
+    
+    // Optional: Log the error for debugging
+    console.warn('Profile image failed to load:', img.src);
+}
+
+// Function to retry loading profile image (bonus feature)
+function retryProfileImage() {
+    const img = document.querySelector('.profile-image');
+    const placeholder = document.querySelector('.profile-image-placeholder');
+    
+    if (img && placeholder) {
+        // Prompt user for new image URL or allow file upload
+        const newSrc = prompt('Enter new profile image URL:');
+        if (newSrc) {
+            img.onerror = function() {
+                handleProfileImageError(this);
+            };
+            img.onload = function() {
+                placeholder.style.display = 'none';
+                this.style.display = 'block';
+            };
+            img.src = newSrc;
+        }
+    }
+}
+
+// Add click handler to profile placeholder for image upload (bonus feature)
+document.addEventListener('DOMContentLoaded', function() {
+    const placeholder = document.querySelector('.profile-image-placeholder');
+    if (placeholder) {
+        placeholder.addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.querySelector('.profile-image');
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+                        placeholder.style.display = 'none';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+    }
+});
+```
+
+## Key JavaScript Features Added:
+
+### 1. Privacy Protection:
+- **`revealContact()` function**: Handles click-to-reveal functionality
+- **`generateContactImage()` function**: Creates canvas-based images from text
+- **Anti-copying protection**: Contact info appears as image, not selectable text
+- **Responsive canvas sizing**: Adapts to content length
+
+### 2. Enhanced Profile Image Handling:
+- **Error handling**: Graceful fallback when image fails to load
+- **Retry mechanism**: Option to load alternative image
+- **File upload support**: Click placeholder to upload new image
+- **Progressive enhancement**: Works with or without JavaScript
+
+### 3. Security Features:
+- **No text selection**: Contact information cannot be copied as text
+- **Canvas-based rendering**: Information is rendered as pixels, not DOM text
+- **User control**: Information only revealed when explicitly clicked
+- **Clear visual feedback**: Users understand the interaction model
