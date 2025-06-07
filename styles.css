@@ -1006,7 +1006,7 @@ section {
 
 .reveal-btn {
     display: inline-block;
-    padding: 5px 15px;
+    padding: 5px 5px;
     background-color: var(--secondary-color);
     color: var(--light-color);
     border-radius: 50px;
@@ -1014,7 +1014,7 @@ section {
     cursor: pointer;
     transition: var(--transition);
     border: none;
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
 .reveal-btn:hover {
