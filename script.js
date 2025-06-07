@@ -129,52 +129,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submission with Formspree using AJAX
     const contactForm = document.getElementById('contactForm');
+    const errorModal = document.getElementById('errorModal');
+    const modalErrorMsg = document.getElementById('modalErrorMsg');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent the default form submission
-            
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = "Sending...";
-            submitBtn.disabled = true;
-            
-            // Get form data
+            e.preventDefault();
+    
             const formData = new FormData(this);
-            
-            // Submit form using fetch API
+    
             fetch("https://formspree.io/f/mblydbee", {
                 method: "POST",
                 body: formData,
                 headers: {
                     "Accept": "application/json"
                 }
-            } )
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    // Show success message
+            })
+            .then(response => {
+                if (response.ok) {
                     alert("Thank you for your message! I'll get back to you soon.");
-                    contactForm.reset(); // Reset the form
+                    contactForm.reset();
                 } else {
-                    // Show error message with more details
-                    alert("There was a problem with your submission. Please check your form data and try again.");
-                    console.error("Form error:", data);
+                    response.json().then(data => {
+                        let errorMsg = "There was a problem submitting your form. Please try again.";
+                        if (data.errors) {
+                            errorMsg = data.errors.map(error => error.message).join(", ");
+                        }
+                        showErrorModal(errorMsg);
+                    });
                 }
-                // Reset button
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
             })
             .catch(error => {
-                // Show error message
-                alert("Oops! There was a problem connecting to the server. Please try again later or contact me directly at bashinim2011@gmail.com");
-                console.error("Fetch error:", error);
-                // Reset button
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
+                showErrorModal("There was a problem submitting your form. Please try again.");
+                console.error(error);
             });
         });
     }
+    
+    function showErrorModal(message) {
+        modalErrorMsg.textContent = message;
+        errorModal.style.display = "block";
+    }
+    
+    if (closeModalBtn) {
+        closeModalBtn.onclick = function() {
+            errorModal.style.display = "none";
+        }
+    }
+    
+    // Optional: Close modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == errorModal) {
+            errorModal.style.display = "none";
+        }
+    }
+
 
 
     // Smooth scrolling for anchor links
