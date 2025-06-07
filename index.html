@@ -46,7 +46,6 @@
                         </div>
                     </div>
                     <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
-                        <!-- FIXED: Profile picture with proper fallback -->
                         <div class="profile-image-container">
                             <img src="images/ProfilePicture_BM.jpg" 
                                  alt="Bashini Mahaarachchi Profile Picture" 
@@ -86,7 +85,7 @@
                     <!-- Tab Content -->
                     <div class="tabs-content">
                         <!-- About Tab -->
-                        <div class="tab-pane active" id="about-tab" data-aos="fade-up">
+                        <div class="tab-pane active" id="about" data-aos="fade-up">
                             <div class="about-content">
                                 <div class="about-text">
                                     <p>Data scientist with over 5 years of experience in analytical roles across diverse industries. Proven expertise in statistical modeling, predictive analytics, and deploying scalable machine learning (ML) models on the cloud. Skilled in scripting clean Python code, managing Git version control, working with big data and communicating complex technical concepts to non-technical stakeholders. Experienced in working with large language models (LLMs) and natural language processing (NLP) applications.</p>
@@ -95,7 +94,7 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                             <span>Berlin, Germany</span>
                                         </div>
-                                        <!-- FIXED: Privacy-protected email with click-to-reveal -->
+                                        
                                         <div class="location-item">
                                             <i class="fas fa-envelope"></i>
                                             <div class="contact-privacy" id="email-contact">
@@ -105,7 +104,7 @@
                                                 <canvas class="contact-canvas" style="display: none;"></canvas>
                                             </div>
                                         </div>
-                                        <!-- FIXED: Privacy-protected phone with click-to-reveal -->
+                                        
                                         <div class="location-item">
                                             <i class="fas fa-phone"></i>
                                             <div class="contact-privacy" id="phone-contact">
@@ -129,6 +128,353 @@
                         </div>
                         
                         <!-- [Rest of the tabs remain the same...] -->
+                        <!-- Experience Tab -->
+                        <div class="tab-pane" id="experience-tab">
+                            <div class="timeline">
+                                <!-- Cogitanda -->
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h3>Data Scientist: IT Transformation</h3>
+                                            <h4><a href="https://www.cogitanda.com/" target="_blank">Cogitanda</a></h4>
+                                            <div class="timeline-meta">
+                                                <span class="timeline-location">Köln, Germany</span>
+                                                <span class="timeline-date">10/2024 - 03/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <ul>
+                                                <li>Designed and developed an automated model to replicate underwriter checks for processing insurance application invitations, outlining logic for acceptance and identifying reasons for non-acceptance. This reduced the time spent by underwriters reviewing applications by 80%, while also eliminating manual errors. <a href="https://www.cogitanda.com/solutions" target="_blank">View related solutions</a></li>
+                                                <li>Supported data transformation and reporting processes for key clients, contributing to the development of Data Lake infrastructure and enabling data flow from DataMart to systems like <a href="https://www.hubspot.com/products/crm" target="_blank">HubSpot CRM</a>.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CareerFoundry -->
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h3>Data Scientist</h3>
+                                            <h4><a href="https://careerfoundry.com/" target="_blank">CareerFoundry</a></h4>
+                                            <div class="timeline-meta">
+                                                <span class="timeline-location">Berlin, Germany</span>
+                                                <span class="timeline-date">05/2023 - 09/2024</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <ul>
+                                                <li>Led the end-to-end development and deployment of the company's two main ML models, driving their success from conception to production. Responsibilities involved the entire model development lifecycle, including monitoring, maintenance, and A/B testing of outcomes:
+                                                    <ol>
+                                                        <li>Student Completion Model: Identifies struggling students for targeted support by the student support team, improving retention and reducing time spent per student by up to 45%. <a href="https://careerfoundry.com/en/blog/data-analytics/" target="_blank">Related analytics blog</a></li>
+                                                        <li>Instructor Quality Model: Identifies instructors likely to receive complaints and detect poor student-instructor matches, improving overall teaching quality and student satisfaction scores by 30% on average.</li>
+                                                    </ol>
+                                                </li>
+                                                <li>Built a Lead Value Estimation Model from marketing data to prioritise leads, improving conversion rates and optimising efforts.</li>
+                                                <li>Developed a <a href="https://www.pinecone.io/learn/retrieval-augmented-generation/" target="_blank">RAG</a> based evaluation tool for student submissions, giving immediate rubric-based feedback and shorter wait times.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Targomo GmbH -->
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-header">
+                                            <h3>Data Scientist</h3>
+                                            <h4><a href="https://www.targomo.com/" target="_blank">Targomo GmbH</a></h4>
+                                            <div class="timeline-meta">
+                                                <span class="timeline-location">Berlin, Germany</span>
+                                                <span class="timeline-date">02/2022 - 03/2023</span>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <ul>
+                                                <li>Added 3 features to the company's main product to provide enhanced analytic capabilities:
+                                                    <ol>
+                                                        <li>Predicted UK and USA census data for higher resolution grids: per 15,000 m² cells (<a href="https://h3geo.org/" target="_blank">h3 hexagons</a>), based on the demographics using ML models.</li>
+                                                        <li>A new feature that identifies similarly performing stores/locations for clients using unsupervised learning ML models. <a href="https://www.targomo.com/products/location-analytics/" target="_blank">View location analytics</a></li>
+                                                        <li>Developed an ensemble ML model to predict car ownership in Germany's (per 15,000 m²) from demographic, economic, and infrastructure data.</li>
+                                                    </ol>
+                                                </li>
+                                                <li>Developed data pipelines to process and analyse peoples' mobility data across countries/continents.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Projects Tab (New) -->
+                        <div class="tab-pane" id="projects-tab">
+                            <div class="projects-grid">
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="project-image">
+                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine Learning Model">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Student Completion Prediction Model</h3>
+                                        <p>Developed a machine learning model to predict student completion rates and identify at-risk students for early intervention.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Python</span>
+                                            <span class="project-tag">Scikit-Learn</span>
+                                            <span class="project-tag">TensorFlow</span>
+                                            <span class="project-tag">AWS</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/bashinim/student-completion-model" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                            <a href="https://careerfoundry.com/en/blog/data-analytics/" target="_blank" class="project-link">
+                                                <i class="fas fa-external-link-alt"></i> View Details
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="project-image">
+                                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Visualization">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Sustainable Parking Detection System</h3>
+                                        <p>Developed a deep learning-based method for mapping on-street parking occupancy using high-resolution airborne imagery.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Computer Vision</span>
+                                            <span class="project-tag">Detectron2</span>
+                                            <span class="project-tag">Lidar</span>
+                                            <span class="project-tag">GIS</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/bashinim/parking-detection" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                            <a href="https://www.researchgate.net/publication/sustainable-parking-mapping" target="_blank" class="project-link">
+                                                <i class="fas fa-external-link-alt"></i> Research Paper
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="project-image">
+                                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Analytics">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>RAG-Based Evaluation Tool</h3>
+                                        <p>Created a Retrieval Augmented Generation (RAG) system for automated evaluation of student submissions with immediate rubric-based feedback.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">NLP</span>
+                                            <span class="project-tag">LangChain</span>
+                                            <span class="project-tag">Vector DB</span>
+                                            <span class="project-tag">LLMs</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/bashinim/rag-evaluation-tool" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                            <a href="https://www.pinecone.io/learn/retrieval-augmented-generation/" target="_blank" class="project-link">
+                                                <i class="fas fa-external-link-alt"></i> RAG Concept
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="project-image">
+                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Machine Learning Model">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Census Data Prediction for High-Resolution Grids</h3>
+                                        <p>Developed ML models to predict UK and USA census data for higher resolution grids (h3 hexagons) based on demographic information.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Geospatial</span>
+                                            <span class="project-tag">H3</span>
+                                            <span class="project-tag">Random Forest</span>
+                                            <span class="project-tag">GIS</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/bashinim/census-prediction" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                            <a href="https://www.targomo.com/products/location-analytics/" target="_blank" class="project-link">
+                                                <i class="fas fa-external-link-alt"></i> Product Info
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Education Tab -->
+                        <div class="tab-pane" id="education-tab">
+                            <div class="education-grid">
+                                <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="education-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h3>Masters in Data Science</h3>
+                                        <h4><a href="https://www.uni-potsdam.de/en/" target="_blank">University of Potsdam</a></h4>
+                                        <div class="education-meta">
+                                            <span class="education-location">Potsdam, Germany</span>
+                                            <span class="education-date">11/2018 - 01/2022</span>
+                                        </div>
+                                        <p>Overall Grading: 1.8 (German Scale), awarded a <a href="https://www.daad.de/en/" target="_blank">DAAD</a> degree completion scholarship</p>
+                                    </div>
+                                </div>
+                                <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="education-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h3>B. Sc. in Physics (Special) Honours</h3>
+                                        <h4><a href="https://cmb.ac.lk/" target="_blank">University of Colombo</a></h4>
+                                        <div class="education-meta">
+                                            <span class="education-location">Colombo, Sri Lanka</span>
+                                            <span class="education-date">01/2013 - 02/2017</span>
+                                        </div>
+                                        <p>GPA: 3.28 (US Scale)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Skills Tab -->
+                        <div class="tab-pane" id="skills-tab">
+                            <div class="skills-container">
+                                <div class="skill-category">
+                                    <h3>Advanced</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">NumPy</span>
+                                        <span class="skill-tag">Pandas</span>
+                                        <span class="skill-tag">SciKit-Learn</span>
+                                        <span class="skill-tag">PyTorch</span>
+                                        <span class="skill-tag">TensorFlow</span>
+                                        <span class="skill-tag">Matplotlib</span>
+                                        <span class="skill-tag">Plotly</span>
+                                        <span class="skill-tag">Dask</span>
+                                        <span class="skill-tag">Apache Spark</span>
+                                        <span class="skill-tag">MLflow</span>
+                                        <span class="skill-tag">Kubeflow</span>
+                                        <span class="skill-tag">Git</span>
+                                        <span class="skill-tag">GitHub Actions</span>
+                                        <span class="skill-tag">R</span>
+                                        <span class="skill-tag">Matlab</span>
+                                        <span class="skill-tag">QGIS</span>
+                                        <span class="skill-tag">ArcGIS</span>
+                                        <span class="skill-tag">SQL</span>
+                                        <span class="skill-tag">BigQuery</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h3>Intermediate</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">AWS</span>
+                                        <span class="skill-tag">GCP</span>
+                                        <span class="skill-tag">Google Analytics 4</span>
+                                        <span class="skill-tag">Tableau</span>
+                                        <span class="skill-tag">Power BI</span>
+                                        <span class="skill-tag">Docker</span>
+                                        <span class="skill-tag">Shell scripting</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Publications Tab -->
+                        <div class="tab-pane" id="publications-tab">
+                            <div class="publications-grid">
+                                <div class="publication-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="publication-content">
+                                        <h3>Sustainable Parking Mapping with Deep Learning (DL) and Aerial Images</h3>
+                                        <h4>Research paper</h4>
+                                        <div class="publication-meta">
+                                            <span class="publication-location">Évora, Portugal</span>
+                                            <span class="publication-date">11/2023</span>
+                                        </div>
+                                        <ul>
+                                            <li>Developed a DL-based method for mapping on-street parking occupancy using high-resolution airborne imagery.</li>
+                                            <li>Used image editing, NIR fusion, and post-processing to enhance detection under trees and reduce false positives.</li>
+                                            <li>Originally explored in my Master's Thesis (Potsdam, Germany), where I applied <a href="https://github.com/facebookresearch/detectron2" target="_blank">Detectron2</a> for parking space detection and integrated Lidar point cloud data for enhanced model performance.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="publication-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="publication-content">
+                                        <h3>Causes of airborne NO2 and CO emission changes in Europe during Covid-19</h3>
+                                        <h4>Research project</h4>
+                                        <div class="publication-meta">
+                                            <span class="publication-location">Potsdam, Germany</span>
+                                            <span class="publication-date">2020</span>
+                                        </div>
+                                        <ul>
+                                            <li>In this study, the relationships of airborne CO and NO2 emissions (acquired by <a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-5" target="_blank">SENTINEL-5</a> satellite observations) with population, road traffic, and vessel traffic in Europe were investigated. Created a publicly available dataset of Europe's road network as a research by-product.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Certifications Tab -->
+                        <div class="tab-pane" id="certifications-tab">
+                            <div class="certifications-grid">
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-aws"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Data Analytics and Databases on AWS</h3>
+                                        <p><a href="https://aws.amazon.com/training/learn-about/data-analytics/" target="_blank">AWS Skill Builder</a></p>
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="150">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-aws"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Building Data Lakes on AWS</h3>
+                                        <p><a href="https://aws.amazon.com/training/learn-about/data-analytics/" target="_blank">AWS Skill Builder</a></p>
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-microsoft"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Power Platform Fundamentals</h3>
+                                        <p><a href="https://learn.microsoft.com/en-us/certifications/power-platform-fundamentals/" target="_blank">Microsoft Credentials</a></p>
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="250">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-java"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Java Application Developer</h3>
+                                        <p><a href="https://www.javainstitute.org/" target="_blank">Java Institute for Advanced Technology</a></p>
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="certification-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Passed Finalist</h3>
+                                        <p><a href="https://www.cimaglobal.com/" target="_blank">The Chartered Institute of Management Accountants (CIMA)</a>; London, UK</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
                         
                         <!-- Contact Section -->
         <section id="contact" class="contact">
@@ -139,7 +485,6 @@
                 </div>
                 <div class="contact-content">
                     <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
-                        <!-- FIXED: Privacy-protected contact information in contact section too -->
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
@@ -148,7 +493,7 @@
                                 <h3>Email</h3>
                                 <div class="contact-privacy" id="email-contact-section">
                                     <span class="privacy-mask" onclick="revealContact('email-contact-section', 'bashinim2011@gmail.com')">
-                                        📧 Click to reveal email
+                                        Click to reveal email
                                     </span>
                                     <canvas class="contact-canvas" style="display: none;"></canvas>
                                 </div>
