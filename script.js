@@ -80,9 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Profile image placeholder click event
     const profilePlaceholder = document.querySelector('.profile-image-placeholder');
-    profilePlaceholder.addEventListener('click', function() {
-        alert('To add a profile picture: \n\n1. Edit the HTML file\n2. Replace the placeholder div with an <img> tag\n3. Set the src attribute to your image file path\n\nExample: <img src="your-image.jpg" alt="Profile Picture" class="profile-image">');
-    });
 
     // Tab switching functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
