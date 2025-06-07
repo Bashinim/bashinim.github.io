@@ -1,4 +1,3 @@
-```javascript
 // JavaScript for portfolio website with tabbed navigation and privacy protection
 
 // Initialize AOS (Animate On Scroll)
@@ -306,4 +305,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-```
