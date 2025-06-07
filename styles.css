@@ -638,7 +638,7 @@ section {
     margin-bottom: 0;
 }
 
-.timeline-dot {
+/*.timeline-dot {
     position: absolute;
     top: 0;
     left: 50%;
@@ -649,7 +649,7 @@ section {
     background-color: var(--secondary-color);
     z-index: 2;
     transition: var(--transition);
-}
+}*/
 
 .timeline-content {
     padding: 20px;
