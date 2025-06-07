@@ -1,6 +1,3 @@
-# Updated CSS with Privacy Protection Styles
-
-```css
 :root {
     --primary-color: #f8f5ff;
     --secondary-color: #74143f;
@@ -386,29 +383,3 @@ body {
         transform: scale(1);
     }
 }
-```
-
-## Key CSS Features Added:
-
-### 1. Enhanced Profile Image Handling:
-- **Proper `.profile-image` styles**: Fixed missing styles for the actual image
-- **Improved placeholder design**: Better visual hierarchy and interactive states
-- **Smooth transitions**: Enhanced loading and error state animations
-- **Responsive sizing**: Adapts to different screen sizes
-
-### 2. Privacy Protection Styles:
-- **Interactive privacy masks**: Attractive click-to-reveal buttons
-- **Canvas styling**: Professional appearance for revealed contact info
-- **Hover effects**: Clear visual feedback for user interaction
-- **Copy prevention**: Styles to prevent text selection and right-click
-
-### 3. Accessibility & UX:
-- **Focus indicators**: Clear outline for keyboard navigation
-- **Loading animations**: Smooth transitions when revealing content
-- **Mobile optimization**: Responsive design for all device sizes
-- **Visual feedback**: Clear indication of interactive elements
-
-### 4. Security Features:
-- **Text selection disabled**: Contact info cannot be copied as text
-- **Right-click protection**: Context menu disabled on sensitive elements
-- **Visual-only display**: Information rendered as non-selectable pixels
