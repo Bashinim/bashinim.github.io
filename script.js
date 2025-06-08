@@ -127,18 +127,83 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Create modal elements for form submission feedback
+    const modalHTML = `
+        <div id="formModal" class="modal">
+            <div class="modal-content">
+                <div id="modalIcon" class="modal-icon">
+                    <i class="fas fa-check-circle success"></i>
+                    <i class="fas fa-exclamation-circle error" style="display: none;"></i>
+                </div>
+                <h3 id="modalTitle" class="modal-title">Thank you!</h3>
+                <p id="modalMessage" class="modal-message">Your message has been sent successfully.</p>
+                <button id="modalButton" class="modal-button">Close</button>
+            </div>
+        </div>
+    `;
+    
+    // Append modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Get modal elements
+    const formModal = document.getElementById('formModal');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    const modalButton = document.getElementById('modalButton');
+    const successIcon = modalIcon.querySelector('.success');
+    const errorIcon = modalIcon.querySelector('.error');
+    
+    // Close modal function
+    function closeModal() {
+        formModal.style.display = 'none';
+    }
+    
+    // Modal button click event
+    modalButton.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === formModal) {
+            closeModal();
+        }
+    });
+    
+    // Show success modal
+    function showSuccessModal(message) {
+        successIcon.style.display = 'inline-block';
+        errorIcon.style.display = 'none';
+        modalTitle.textContent = 'Thank you!';
+        modalMessage.textContent = message || 'Your message has been sent successfully.';
+        formModal.style.display = 'block';
+    }
+    
+    // Show error modal
+    function showErrorModal(message) {
+        successIcon.style.display = 'none';
+        errorIcon.style.display = 'inline-block';
+        modalTitle.textContent = 'Oops! Something went wrong';
+        modalMessage.textContent = message || 'Please try again or contact me directly at bashinim2011@gmail.com';
+        formModal.style.display = 'block';
+    }
+
     // Form submission with Formspree using AJAX
     const contactForm = document.getElementById('contactForm');
-    const errorModal = document.getElementById('errorModal');
-    const modalErrorMsg = document.getElementById('modalErrorMsg');
-    const closeModalBtn = document.getElementById('closeModalBtn');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-    
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+            
+            // Get form data
             const formData = new FormData(this);
-    
+            
+            // Submit form using fetch API
             fetch("https://formspree.io/f/mblydbee", {
                 method: "POST",
                 body: formData,
@@ -147,45 +212,41 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .then(response => {
-                if (response.ok) {
-                    alert("Thank you for your message! I'll get back to you soon.");
-                    contactForm.reset();
+                // Parse the JSON response regardless of status
+                return response.json().then(data => {
+                    // Add the original response status to the data
+                    return { ...data, ok: response.ok };
+                });
+            })
+            .then(data => {
+                // Reset button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                
+                if (data.ok) {
+                    // Show success message
+                    showSuccessModal("Thank you for your message! I'll get back to you soon.");
+                    contactForm.reset(); // Reset the form
                 } else {
-                    response.json().then(data => {
-                        let errorMsg = "There was a problem submitting your form. Please try again.";
-                        if (data.errors) {
-                            errorMsg = data.errors.map(error => error.message).join(", ");
-                        }
-                        showErrorModal(errorMsg);
-                    });
+                    // Show error message with more details
+                    let errorMsg = "There was a problem with your submission. Please try again.";
+                    if (data.errors) {
+                        errorMsg = data.errors.map(error => error.message).join(", ");
+                    }
+                    showErrorModal(errorMsg);
                 }
             })
             .catch(error => {
-                showErrorModal("There was a problem submitting your form. Please try again.");
-                console.error(error);
+                // Reset button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Show error message
+                showErrorModal("There was a problem connecting to the server. Please try again later.");
+                console.error("Form submission error:", error);
             });
         });
     }
-    
-    function showErrorModal(message) {
-        modalErrorMsg.textContent = message;
-        errorModal.style.display = "block";
-    }
-    
-    if (closeModalBtn) {
-        closeModalBtn.onclick = function() {
-            errorModal.style.display = "none";
-        }
-    }
-    
-    // Optional: Close modal when clicking outside of it
-    window.onclick = function(event) {
-        if (event.target == errorModal) {
-            errorModal.style.display = "none";
-        }
-    }
-
-
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
