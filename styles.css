@@ -73,8 +73,9 @@ li {
     margin-bottom: 6px;
 }
 li > ul, li > ol {
-  margin-left: 50px;
-  padding-left: 20px;
+  margin-left: 20px;
+  /* padding-left: 20px; */
+  
 }
 
 section {
@@ -722,6 +723,9 @@ section {
     color: var(--text-color);
 }
 
+.education-meta .gpa-detail {
+    flex-basis: 100%; /* Forces this item to take full width, pushing subsequent items to the next line */
+}
 /* Publications */
 .publications-grid {
     display: grid;
