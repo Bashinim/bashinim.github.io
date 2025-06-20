@@ -65,7 +65,7 @@ a:hover {
 }
 
 ul, ol {
-    list-style-position: outside;
+    list-style-position: inside;
     margin-bottom: 6px;
 }
 
@@ -74,6 +74,7 @@ li {
 }
 li > ul, li > ol {
   margin-left: 50px;
+  padding-left: 20px;
 }
 
 section {
