@@ -1,7 +1,7 @@
 /* Global Styles */
 :root {
-    --primary-color: #f8f5ff;
-    --secondary-color: #771877;
+    --primary-color: #f3ecfb;
+    --secondary-color: #703085;
     --accent-color: #b16adb;
     --light-color: #ffffff;
     --dark-color: #4a2c8f;
@@ -66,11 +66,14 @@ a:hover {
 
 ul, ol {
     list-style-position: inside;
-    margin-bottom: 15px;
+    margin-bottom: 6px;
 }
 
 li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+}
+li > ul, li > ol {
+  margin-left: 20px;
 }
 
 section {
