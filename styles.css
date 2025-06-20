@@ -686,7 +686,9 @@ section {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
 }
-
+.education-meta span {
+    display: block;
+}
 .education-card {
     background-color: var(--card-background);
     border-radius: var(--border-radius);
