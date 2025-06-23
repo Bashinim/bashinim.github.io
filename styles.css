@@ -766,6 +766,7 @@ section {
 
 .publication-content h3 {
     color: var(--secondary-color);
+    padding: 25px;
     margin-bottom: 5px;
 }
 
@@ -869,8 +870,6 @@ section {
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    max-width: 600px;
-    margin: 0 auto;
     gap: 30px;
 }
 
