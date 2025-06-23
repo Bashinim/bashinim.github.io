@@ -882,6 +882,7 @@ section {
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+     padding: 30px;
 }
 
 .certification-card:hover {
@@ -892,19 +893,16 @@ section {
 .certification-icon {
     font-size: 2.5rem;
     color: var(--secondary-color);
-    padding: 25px;
     margin-bottom: 20px;
 }
 
 .certification-content h3 {
     color: var(--heading-color);
-    padding: 25px;
     margin-bottom: 10px;
 }
 
 .certification-content p {
     font-size: 0.9rem;
-    padding: 25px;
     color: var(--text-color);
 }
 
