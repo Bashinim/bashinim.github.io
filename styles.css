@@ -866,21 +866,13 @@ section {
 }
 
 /* Certifications */
-/*.certifications-grid {
+.certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     max-width: 600px;
     margin: 0 auto;
     gap: 30px;
-}*/
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 600px; /* Adjust this value as needed to control the overall width of the grid */
-    margin: 0 auto; /* Centers the grid within its parent container */
 }
-
 
 .certification-card {
     background-color: var(--card-background);
