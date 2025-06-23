@@ -1,1310 +1,755 @@
-/* Global Styles */
-:root {
-    --primary-color: #f3ecfb;
-    --secondary-color: #6a3e8f;
-    --accent-color: #9f5cc6;
-    --light-color: #ffffff;
-    --dark-color: #4a2c8f;
-    --text-color: #4a3a6a;
-    --heading-color: #3a2a5a;
-    --background-color: #f8f5ff;
-    --card-background: rgba(186, 169, 255, 0.1);
-    --border-radius: 8px;
-    --box-shadow: 0 10px 30px rgba(138, 79, 255, 0.15);
-    --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    overflow-x: hidden;
-}
-
-.page-wrapper {
-    position: relative;
-    min-height: 100vh;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--heading-color);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    transition: var(--transition);
-}
-
-a:hover {
-    color: var(--dark-color);
-}
-
-ul, ol {
-    list-style-position: inside;
-    margin-bottom: 6px;
-}
-
-li {
-    margin-bottom: 6px;
-}
-li > ul, li > ol {
-  margin-left: 20px;
-  /* padding-left: 20px; */
-  
-}
-
-section {
-    padding: 100px 0;
-    position: relative;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    position: relative;
-    display: inline-block;
-}
-
-.section-divider {
-    height: 4px;
-    width: 70px;
-    background-color: var(--secondary-color);
-    margin: 0 auto;
-    margin-top: 15px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    border: none;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: all 0.5s ease;
-    z-index: -1;
-}
-
-.btn:hover::before {
-    width: 100%;
-}
-
-.btn-primary {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-}
-
-.btn-primary:hover {
-    color: var(--light-color);
-    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.4);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
-}
-
-.btn-secondary:hover {
-    color: var(--secondary-color);
-    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.2);
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 0;
-    z-index: 1000;
-    transition: var(--transition);
-}
-
-.navbar.scrolled {
-    background-color: rgba(248, 245, 255, 0.95);
-    padding: 15px 0;
-    box-shadow: 0 5px 20px rgba(138, 79, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    font-family: 'Montserrat', sans-serif;
-}
-
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-}
-
-.nav-links ul li {
-    margin: 0 15px;
-    margin-bottom: 0;
-}
-
-.nav-links ul li a {
-    color: var(--heading-color);
-    font-weight: 500;
-    position: relative;
-    padding: 5px 0;
-}
-
-.nav-links ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--secondary-color);
-    transition: var(--transition);
-}
-
-.nav-links ul li a:hover::after,
-.nav-links ul li a.active::after {
-    width: 100%;
-}
-
-.nav-links ul li a.active {
-    color: var(--secondary-color);
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    width: 30px;
-    height: 20px;
-    position: relative;
-}
-
-.hamburger span {
-    display: block;
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background-color: var(--secondary-color);
-    border-radius: 2px;
-    transition: var(--transition);
-}
-
-.hamburger span:nth-child(1) {
-    top: 0;
-}
-
-.hamburger span:nth-child(2) {
-    top: 9px;
-}
-
-.hamburger span:nth-child(3) {
-    top: 18px;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 9px;
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 9px;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    background-color: var(--primary-color);
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.hero-text {
-    flex: 1;
-    padding-right: 30px;
-}
-
-.hero-text h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    color: var(--heading-color);
-}
-
-.hero-text h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-}
-
-.hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-image {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    position: relative;
-    z-index: 2;
-    border: 3px solid var(--secondary-color);
-    object-fit: cover;
-    object-position: center; 
-}
-
-.profile-image-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-image-container::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, var(--secondary-color), transparent, var(--accent-color));
-    animation: glowing 3s linear infinite;
-    z-index: 1;
-}
-
-.profile-image-placeholder {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: var(--card-background);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.profile-image-placeholder:hover {
-    background-color: rgba(186, 169, 255, 0.2);
-}
-
-.profile-image-placeholder i {
-    font-size: 4rem;
-    color: var(--secondary-color);
-    margin-bottom: 10px;
-}
-
-.profile-image-placeholder span {
-    color: var(--heading-color);
-    font-size: 0.9rem;
-}
-
-.hero-shape {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background-color: var(--primary-color);
-    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
-}
-
-/* Portfolio Section with Tabs */
-.portfolio {
-    background-color: var(--light-color);
-    padding: 120px 0;
-}
-
-.tabs-container {
-    margin-top: 50px;
-}
-
-.tabs-navigation {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
-}
-
-.tab-btn {
-    padding: 12px 25px;
-    background-color: var(--card-background);
-    color: var(--heading-color);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.tab-btn::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--secondary-color);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.tab-btn:hover {
-    background-color: rgba(186, 169, 255, 0.2);
-}
-
-.tab-btn:hover::before {
-    transform: scaleX(0.5);
-    transform-origin: left;
-}
-
-.tab-btn.active {
-    background-color: rgba(138, 79, 255, 0.1);
-    color: var(--secondary-color);
-}
-
-.tab-btn.active::before {
-    transform: scaleX(1);
-}
-
-.tabs-content {
-    position: relative;
-    min-height: 400px;
-}
-
-.tab-pane {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    transform: translateY(20px);
-}
-
-.tab-pane.active {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* About Content */
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.about-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.location-info {
-    margin: 30px 0;
-}
-
-.location-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.location-item i {
-    color: var(--secondary-color);
-    margin-right: 15px;
-    font-size: 1.2rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--card-background);
-    color: var(--secondary-color);
-    transition: var(--transition);
-}
-
-.social-link:hover {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    transform: translateY(-5px);
-}
-
-.social-link i {
-    font-size: 1.2rem;
-}
-
-/* Skills */
-.skills-container {
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    box-shadow: var(--box-shadow);
-}
-
-.skill-category {
-    margin-bottom: 30px;
-}
-
-.skill-category:last-child {
-    margin-bottom: 0;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.skill-tag {
-    padding: 8px 15px;
-    background-color: rgba(138, 79, 255, 0.1);
-    color: var(--secondary-color);
-    border-radius: 50px;
-    font-size: 0.9rem;
-    transition: var(--transition);
-    cursor: default;
-}
-
-.skill-tag:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.2);
-}
-
-/* Timeline */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: var(--accent-color);
-    top: 0;
-    bottom: 0;
-    left: 20px;
-    margin-left: -1px;
-}
-
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    left: 0;
-    background-color: var(--secondary-color);
-    border: 2px solid var(--light-color);
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-    transform: scale(0);
-    animation: none;
-}
-
-.timeline-item.aos-animate::before {
-    background-color: var(--secondary-color);
-    animation: fillDot 0.5s ease forwards;
-}
-
-@keyframes fillDot {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-content {
-    padding: 20px;
-    background-color: var(--light-color);
-    position: relative;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.timeline-content h3 {
-    margin-top: 0;
-    color: var(--secondary-color);
-}
-
-.timeline-content h4 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    color: var(--dark-color);
-}
-
-.timeline-content .date {
-    color: var(--accent-color);
-    font-weight: 500;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.timeline-content ul {
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-.timeline-content ul li {
-    margin-bottom: 5px;
-}
-
-.timeline-meta {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: var(--text-color);
-}
-
-/* Education */
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-}
-.education-meta span {
-    display: block;
-}
-.education-card {
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-}
-
-.education-card:hover {
-    transform: translateY(-10px);
-}
-
-.education-icon {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-}
-
-.education-content h3 {
-    color: var(--secondary-color);
-    margin-bottom: 5px;
-}
-
-.education-meta {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    color: var(--text-color);
-}
-
-.education-meta .gpa-detail {
-    flex-basis: 100%; /* Forces this item to take full width, pushing subsequent items to the next line */
-}
-/* Publications */
-.publications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.publication-card {
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 30px;
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-}
-
-.publication-card:hover {
-    transform: translateY(-10px);
-}
-
-.publication-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-}
-
-.publication-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.publication-content h3 {
-    color: var(--secondary-color);
-    margin-bottom: 5px;
-}
-
-.publication-meta {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    color: var(--text-color);
-}
-
-/* Projects */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(138, 79, 255, 0.2);
-}
-
-.project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-image img {
-    transform: scale(1.05);
-}
-
-.project-content {
-    padding: 25px;
-}
-
-.project-content h3 {
-    color: var(--secondary-color);
-    margin-bottom: 10px;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
-}
-
-.project-tag {
-    padding: 5px 12px;
-    background-color: rgba(138, 79, 255, 0.1);
-    color: var(--secondary-color);
-    border-radius: 50px;
-    font-size: 0.8rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.project-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--secondary-color);
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.project-link:hover {
-    color: var(--dark-color);
-    transform: translateY(-2px);
-}
-
-.project-link i {
-    font-size: 1.1rem;
-}
-
-/* Certifications */
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.certification-card {
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: 25px;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.certification-card:hover {
-    transform: translateY(-10px);
-    background-color: rgba(186, 169, 255, 0.2);
-}
-
-.certification-icon {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-}
-
-.certification-content h3 {
-    color: var(--heading-color);
-    margin-bottom: 10px;
-}
-
-.certification-content p {
-    font-size: 0.9rem;
-    color: var(--text-color);
-}
-
-/* Contact Section */
-.contact {
-    background-color: var(--primary-color);
-    position: relative;
-}
-
-.contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.contact-info {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.contact-icon {
-    width: 60px;
-    height: 60px;
-    background-color: var(--card-background);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-    transition: var(--transition);
-}
-
-.contact-item:hover .contact-icon {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    transform: rotateY(180deg);
-}
-
-.contact-text h3 {
-    margin-bottom: 5px;
-}
-
-.contact-social {
-    display: flex;
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.contact-form {
-    flex: 1;
-    min-width: 300px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--heading-color);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: var(--card-background);
-    border: 1px solid rgba(138, 79, 255, 0.2);
-    border-radius: var(--border-radius);
-    color: var(--text-color);
-    font-family: 'Poppins', sans-serif;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 10px rgba(138, 79, 255, 0.2);
-}
-
-/* Custom Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    animation: fadeIn 0.3s ease;
-}
-
-.modal-content {
-    background-color: var(--light-color);
-    margin: 15% auto;
-    padding: 30px;
-    border-radius: var(--border-radius);
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    position: relative;
-    animation: slideIn 0.4s ease;
-}
-
-.modal-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.modal-icon.success {
-    color: #28a745;
-}
-
-.modal-icon.error {
-    color: #dc3545;
-}
-
-.modal-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: var(--heading-color);
-}
-
-.modal-message {
-    margin-bottom: 25px;
-    color: var(--text-color);
-}
-
-.modal-button {
-    padding: 10px 25px;
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.modal-button:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Footer */
-.footer {
-    background-color: var(--light-color);
-    padding: 40px 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    font-family: 'Montserrat', sans-serif;
-}
-
-.footer-text {
-    color: var(--text-color);
-    font-size: 0.9rem;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--secondary-color);
-}
-
-/* Back to top button */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 99;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-    border: none;
-    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.4);
-}
-
-.back-to-top.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-5px);
-}
-
-/* Contact Masking */
-.masked-info {
-    display: inline-flex;
-    align-items: center;
-}
-
-.reveal-btn {
-    display: inline-block;
-    padding: 5px 5px;
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    border-radius: 50px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: var(--transition);
-    border: none;
-    margin-left: 2px;
-}
-
-.reveal-btn:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-.hidden-info {
-    display: none;
-    user-select: none; /* Makes text unselectable */
-    margin-left: 5px; /* Adds space after the label */
-    position: relative;
-    background-image: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 500;
-}
-
-.masked-info span:first-child {
-    margin-right: 5px; 
-}
-
-/* Animations */
-@keyframes glowing {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 992px) {
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-text {
-        padding-right: 0;
-        margin-bottom: 50px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .contact-content {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: var(--light-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links ul li {
-        margin: 15px 0;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-text h2 {
-        font-size: 1.5rem;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .tabs-navigation {
-        overflow-x: auto;
-        padding-bottom: 10px;
-        justify-content: flex-start;
-    }
-
-    .tab-btn {
-        flex: 0 0 auto;
-        white-space: nowrap;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .hero-text h1 {
-        font-size: 2rem;
-    }
-
-    .hero-text h2 {
-        font-size: 1.2rem;
-    }
-
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .profile-image-container {
-        width: 250px;
-        height: 250px;
-    }
-
-    .profile-image {
-        width: 250px;
-        height: 250px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bashini Mahaarachchi - Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+               <!-- <a href="#" class="logo">BM</a> -->
+                <div class="nav-links" id="navLinks">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- About Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+                        <h1>Bashini Mahaarachchi</h1>
+                        <h2>Data Scientist</h2>
+                        <p>Transforming data into actionable insights and innovative solutions</p>
+                        <div class="hero-buttons">
+                            <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        </div>
+                    </div>
+                    <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="profile-image-container">
+                            <img src="images/ProfilePicture_BM.jpg" alt="Bashini Mahaarachchi" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape"></div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Portfolio</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="tabs-container">
+                    <div class="tabs-navigation" data-aos="fade-up" data-aos-delay="100">
+                        <button class="tab-btn active" data-tab="about">About Me</button>
+                        <button class="tab-btn" data-tab="skills">Skills</button>
+                        <button class="tab-btn" data-tab="experience">Experience</button>
+                        <button class="tab-btn" data-tab="projects">Projects</button>
+                        <button class="tab-btn" data-tab="education">Education</button>
+                        <button class="tab-btn" data-tab="publications">Publications</button>
+                        <button class="tab-btn" data-tab="certifications">Certifications</button>
+                    </div>
+                    <div class="tabs-content">
+                        <!-- About Tab -->
+                        <div class="tab-pane active" id="about">
+                            <div class="about-content">
+                                <div class="about-text" data-aos="fade-right" data-aos-delay="100">
+                                    <p>Data scientist with over 5 years of experience in analytical roles across diverse industries. Proven expertise in statistical modeling, predictive analytics, and deploying scalable machine learning (ML) models on the cloud. Skilled in scripting with Python code, managing Git version control, working with big data and communicating complex technical concepts to non-technical stakeholders. Experienced in working with large language models (LLMs) and natural language processing (NLP) applications.</p>
+                                    <div class="location-info">
+                                        <div class="location-item">
+                                            <i class="fas fa-envelope"></i>
+                                            <div class="masked-info">
+                                                <span>Email: </span>
+                                                <button class="reveal-btn" id="revealEmail">Click to reveal email</button>
+                                                <span class="hidden-info" id="hiddenEmail">bashinim2011@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="location-item">
+                                            <i class="fas fa-phone"></i>
+                                            <div class="masked-info">
+                                                <span>Phone: </span>
+                                                <button class="reveal-btn" id="revealPhone">Click to reveal phone</button>
+                                                <span class="hidden-info" id="hiddenPhone">(+49)15226831682</span>
+                                            </div>
+                                        </div>
+                                        <div class="location-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <p>Berlin, Germany</p>
+                                        </div>
+                                    </div>
+                                    <div class="social-links">
+                                        <a href="https://linkedin.com/in/Bashinim" target="_blank" class="social-link">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                        <a href="https://github.com/bashinim" target="_blank" class="social-link">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>            
+                        <!-- Skills Tab -->
+                        <div class="tab-pane" id="skills">
+                            <div class="skills-container" data-aos="fade-up">
+
+                                <!-- Programming Languages -->
+                                <div class="skill-category">
+                                    <h3>Programming Languages</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">R</span>
+                                        <span class="skill-tag">SQL</span>
+                                        <span class="skill-tag">Matlab</span>
+                                        <span class="skill-tag">Shell scripting</span>
+                                    </div>
+                                </div>
+
+                               <!-- Machine Learning & AI -->
+                                <div class="skill-category">
+                                    <h3>Machine Learning & AI</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Supervised Learning</span>
+                                        <span class="skill-tag">Unsupervised Learning</span>
+                                        <span class="skill-tag">Deep Learning</span>
+                                        <span class="skill-tag">Natural Language Processing</span>
+                                        <span class="skill-tag">Computer Vision</span>
+                                        <span class="skill-tag">Reinforcement Learning</span>
+                                        <span class="skill-tag">Time Series Analysis</span>
+                                        <span class="skill-tag">Recommendation Systems</span>
+                                    </div>
+                                    <div class="skill-tools-label" style="margin-top: 8px; font-size: 1em; color: #595151;">
+                                        Tools & Frameworks:
+                                    </div>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">SciKit-Learn</span>
+                                        <span class="skill-tag">PyTorch</span>
+                                        <span class="skill-tag">TensorFlow</span>
+                                        <span class="skill-tag">MLflow</span>
+                                        <span class="skill-tag">Kubeflow</span>
+                                        <span class="skill-tag">Dask</span>
+                                        <span class="skill-tag">Amazon SageMaker</span>
+                                        <span class="skill-tag">Vertex AI (Google Cloud)</span>
+                                    </div>
+                                </div>
+
+                                <!-- Data Analysis & Statistics: -->
+                                <div class="skill-category">
+                                    <h3>Data Analysis & Statistics</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Data Cleaning</span>
+                                        <span class="skill-tag">Data Preprocessing</span>
+                                        <span class="skill-tag">Feature Engineering</span>
+                                        <span class="skill-tag">Statistical Modeling</span>
+                                        <span class="skill-tag">Hypothesis Testing</span>
+                                        <span class="skill-tag">A/B Testing</span>
+                                    </div>
+                                </div>
+
+                                <!-- Data Engineering & Big Data -->
+                                <div class="skill-category">
+                                    <h3>Data Engineering & Big Data</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Apache Spark</span>
+                                        <span class="skill-tag">BigQuery</span>
+                                        <span class="skill-tag">ETL/ELT</span>
+                                        <span class="skill-tag">Apache Airflow</span>
+                                    </div>
+                                </div>
+
+                                <!-- Cloud Platforms -->
+                                <div class="skill-category">
+                                    <h3>Cloud & DevOps</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">AWS</span>
+                                        <span class="skill-tag">GCP</span>
+                                        <span class="skill-tag">Kubernetes</span>
+                                        <span class="skill-tag">MLOps / Model Deployment</span>
+                                        <span class="skill-tag">CI/CD (e.g., GitHub Actions)</span>
+                                    </div>
+                                </div>
+                                <!-- Data Visualization -->
+                                <div class="skill-category">
+                                    <h3>Data Visualization</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Matplotlib</span>
+                                        <span class="skill-tag">Plotly</span>
+                                        <span class="skill-tag">Tableau</span>
+                                        <span class="skill-tag">Power BI</span>
+                                        <span class="skill-tag">Google Analytics 4</span>
+                                        <span class="skill-tag">QGIS</span>
+                                        <span class="skill-tag">ArcGIS</span>
+                                    </div>
+                                </div>
+                                <!-- Version Control -->
+                                <div class="skill-category">
+                                    <h3>Version Control</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Git</span>
+                                    </div>
+                                </div>
+                                <!-- Soft Skills -->
+                                <div class="skill-category">
+                                    <h3>Soft Skills</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Project Management</span>
+                                        <span class="skill-tag">Team Leadership</span>
+                                        <span class="skill-tag">Technical Writing</span>
+                                        <span class="skill-tag">Public Speaking</span>
+                                        <span class="skill-tag">Problem Solving</span>
+                                        <span class="skill-tag">Cross-functional Collaboration</span>
+                                        <span class="skill-tag">Data Storytelling / Communicating Insights</span>
+                                    </div>
+                                </div>
+                                <!-- Linguistics -->
+                                <div class="skill-category">
+                                    <h3>Linguistics</h3>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">English – Proficient (C2)</span>
+                                        <span class="skill-tag">Sinhala – Native</span>
+                                        <span class="skill-tag">German – Basic (A2)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <!-- Experience Tab -->
+                        <div class="tab-pane" id="experience">
+                            <div class="timeline">
+
+                                <!-- Cogitanda -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Data Scientist: IT Transformation</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4><a href="https://www.cogitanda.com/en" target="_blank" class="expereince-links">Cogitanda, Köln, Germany</a> </h4>
+                                        <span class="date">October 2024 – March 2025 (<b>5 months</b>)</span>
+                                        <ul>
+                                            <li>Designed and developed an automated model to replicate underwriter checks for processing insurance application invitations, reducing underwriter review time by 80% and eliminating manual errors.</li>
+                                            <li>Supported data transformation and reporting processes for key clients, contributing to Data Lake infrastructure and enabling data flow from DataMart to systems like HubSpot CRM.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- CareerFoundry -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Data Scientist</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4> <a href="https://careerfoundry.com/de/" target="_blank" class="expereince-links">CareerFoundry, Berlin, Germany</a> </h4>
+                                        <span class="date">May 2023 – September 2024 (<b>1 year 4 months</b>)</span>
+                                        <ul>
+                                            <li>Led the end-to-end development and deployment of two main ML models, including monitoring, maintenance, and A/B testing.
+                                            <ol>
+                                                <li>Developed a Student Completion Model to identify struggling students, improving retention and reducing time spent per student by up to 45%.</li>
+                                                <li>Built an Instructor Quality Model to detect poor student-instructor matches, increasing student satisfaction scores by 30% on average.</li>
+                                                
+                                            </ol>
+                                            </li>
+                                        </ul>
+                                        <ul>    
+                                            <li>Created a Lead Value Estimation Model from marketing data, improving conversion rates and optimizing efforts.</li>
+                                            <li>Developed a RAG-based evaluation tool for student submissions, providing immediate rubric-based feedback and reducing wait times.</li>
+                                            <li>Worked on anonymizing student submissions, plagiarism checks, and extracting themes from student-tutor conversations.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Targomo GmbH -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Data Scientist</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4><a href="https://www.targomo.com/" target="_blank" class="expereince-links">Targomo GmbH, Berlin, Germany</a> </h4>
+                                        <span class="date">February 2022 – March 2023 (<b>1 year 1 month</b>)</span>
+                                        <ul>
+                                            <li>Added features to the main product, including high-resolution census data predictions and store similarity analysis using ML models.</li>
+                                            <li>Developed an ensemble ML model to predict car ownership in Germany from demographic, economic, and infrastructure data.</li>
+                                            <li>Built data pipelines to process and analyze mobility data, integrating OSM data for enhanced demographic insights.</li>
+                                            <li>Conducted revenue predictions and white spot analysis for clients using ML methods.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Reiner Lemoine Institute -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Research Assistant – Working Student</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4><a href="https://reiner-lemoine-institut.de/" target="_blank" class="expereince-links">Reiner Lemoine Institute, Berlin, Germany</a> </h4>
+                                        <span class="date">February 2021 – December 2021 (<b>10 months</b>)</span>
+                                        <ul>
+                                            <li>Analyzed grid flexibility potential by examining electricity demand and renewable energy patterns.</li>
+                                            <li>Built a simulation tool to assess economic viability of battery storage for excess renewable energy.</li>
+                                            <li>Performed location-based analysis of charging infrastructure across Germany.</li>
+                                            <li>Forecasted renewable energy potential and calculated rooftop PV potential for multiple clients.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- WAGENER and HERBST Management Consultants GmbH. -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Data Analyst – Working Student</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4><a href="https://www.wagener-herbst.com/" target="_blank" class="expereince-links">WAGENER and HERBST Management Consultants GmbH., Potsdam, Germany</a> </h4>
+                                        <span class="date">April 2019 – January 2021 (<b>1 year 9 months</b>)</span>
+                                        <ul>
+                                            <li>Analyzed BMVI’s 2030 traffic forecast and created visualization maps of German cargo transport volumes across road, rail, and inland waterways to map national freight potential: <a href="https://www.wagener-herbst.com/2020/07/13/integrierte-verkehrsstudie-lausitz-veroeffentlicht/" target="_blank" class="expereince-links">Reference</a> </li>
+                                            <li>Forecasted cargo throughput for Mongla Port (Bangladesh) using economic and socioeconomic factors.</li>
+                                            <li>Conducted financial assessments for major South Asian ports.</li>
+                                            <li>Led in-house training on analyzing and visualizing spatial data using QGIS.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Hitachi Digital Payment Solutions -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Business Analyst</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4> <a href="https://hitachi-dps.com/" target="_blank" class="expereince-links">Hitachi Digital Payment Solutions (Interblocks Ltd.) - Previous name- Interblocks , Colombo, Sri Lanka</a> </h4>
+                                        <span class="date">December 2017 – October 2018 (<b>10 months</b>)</span>
+                                        <ul>
+                                            <li>Improved business processes by analyzing payment systems and translating client needs into development specs.</li>
+                                            <li>Conducted comprehensive business analysis, GAP analysis, user stories, workflow documentation, and client training.</li>
+                                            <li>Created data visualizations using R and Tableau; developed various documentation and user manuals.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Stax Inc. -->
+                                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
+                                    <div class="timeline-content">
+                                        <h3>Statistical Analyst</h3>
+                                        <div class="expereince-link"></div>
+                                        <h4><a href="https://www.stax.com/about" target="_blank" class="expereince-links">Stax Inc., Colombo, Sri Lanka</a> </h4>
+                                        <span class="date">April 2017 – December 2017 (<b>9 months</b>)</span>
+                                        <ul>
+                                            <li>Designed and developed survey studies, interview guides, and programmed surveys using Sawtooth software.</li>
+                                            <li>Performed data wrangling, feature engineering, and analysis using R, SPSS, and Excel.</li>
+                                            <li>Presented findings through dashboards and visualizations.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <!-- Projects Tab -->
+                        <div class="tab-pane" id="projects">
+                            <div class="projects-grid">
+
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="project-image">
+                                        <img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-031-48232-8_20/MediaObjects/549545_1_En_20_Fig5_HTML.png" alt="On-Street Parking">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Deep Learning for Parking Space Detection in Aerial Imagery</h3>
+                                        <p>This master's thesis involved the development of a system to automatically generate parking lot maps from aerial imagery using deep learning. The system leverages Detectron2 to perform object detection and image segmentation, identifying the status of individual parking spaces as either occupied or empty. To improve detection accuracy, the model was augmented with Lidar point cloud data. The primary objective of this research was to create accurate parking maps for regions where such cartographic data is not available but high-quality aerial images exist.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Python</span>
+                                            <span class="project-tag">Real-Time Detection</span>
+                                            <span class="project-tag">Smart Parking</span>
+                                            <span class="project-tag">Computer Vision</span>
+                                            <span class="project-tag">Detectron2</span>
+                                            <span class="project-tag">Lidar</span>
+
+
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Bashinim/Parking-Lot-Detection" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="project-image">
+                                        <img src="https://images.unsplash.com/photo-1581594355548-aab613ebdb69?q=80&w=1994&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cancer-detection">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Cancer Detection with ML Models</h3>
+                                        <p>Developed a cancer detection system by implementing and comparing multiple machine learning models—including logistic regression, decision trees, random forests, and support vector machines—on a cancer dataset. Applied hyperparameter tuning with GridSearchCV to optimize model performance, and evaluated results using accuracy, precision, recall, F1-score, and ROC-AUC metrics.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Python</span>
+                                            <span class="project-tag">Hyperparameter Tuning</span>
+                                            <span class="project-tag">GridSearchCV</span>
+                                            <span class="project-tag">Model Evaluation</span>
+                                            <span class="project-tag">scikit-learn</span>
+                                            <span class="project-tag">pandas</span>
+                                            <span class="project-tag">numpy</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Bashinim/Projects/blob/main/Cancer%20Detection%20with%20Machine%20Learning%20Models%20and%20Hyperparameter%20Tuning.ipynb" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="project-image">
+                                        <img src="https://raw.githubusercontent.com/Bashinim/COVID19-EU/refs/heads/main/Cropped%20Images/F.4.6.jpg" alt="Analysing NO2 and CO emissions">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Analysing NO₂ & CO changes in Europe during COVID-19 lockdowns</h3>
+                                        <p> Conducted a comprehensive analysis of the COVID-19 lockdown's effect on European air quality (CO and NO₂), using Python and Google Earth Engine to fuse satellite imagery (SENTINEL-5) with population and traffic data. The study successfully quantified emission changes, demonstrating that decreased road traffic was the main driver of NO₂ decline during lockdown, especially in densely populated and trafficked areas.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Air Pollution</span>
+                                            <span class="project-tag">COVID-19</span>
+                                            <span class="project-tag">NO₂</span>
+                                            <span class="project-tag">CO</span>
+                                            <span class="project-tag">Europe</span>
+                                            <span class="project-tag">Remote Sensing</span>
+                                            <span class="project-tag">Satellite Data</span>
+                                            <span class="project-tag">SENTINEL-5</span>
+                                            <span class="project-tag">Google Earth Engine (GEE)</span>
+                                            <span class="project-tag">Environmental Analysis</span>
+                                            <span class="project-tag">Time Series Analysis</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://up-rs-esp.github.io/posts/2020/12/COVID-19-NOx-CO-emission-Europe/" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="project-image">
+                                        <img src="https://plus.unsplash.com/premium_photo-1682309743711-a8f84f47fef6?q=80&w=1212&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Predicting House Price">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Predicting House Prices</h3>
+                                        <p> Developed a house price prediction model using the California housing dataset. Performed data cleaning, feature selection, and implemented linear regression, decision tree, and random forest models. Compared model performance to select the most accurate approach.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Python</span>
+                                            <span class="project-tag">DBSCAN</span>
+                                            <span class="project-tag">statsmodels</span>
+                                            <span class="project-tag">scikit-learn</span>
+                                            <span class="project-tag">matplotlib</span>
+                                            <span class="project-tag">pandas</span>
+                                            <span class="project-tag">numpy</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Bashinim/Projects/blob/main/Predicting%20House%20Price%20with%20Machine%20Learning%20Models.ipynb" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="project-image">
+                                        <img src="https://zenodo.org/records/4284076/files/Europe%20Road%20Network.png?" alt="Europe Road Network">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Europe Road Network extracted from OpenStreetMap data</h3>
+                                        <p> Compiled a dataset of the European road network by extracting highways classified as motorway, trunk, primary, secondary, tertiary, unclassified, and residential. The data was stored as line strings.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Europe - Road Network</span>
+                                            <span class="project-tag">Shell Scripting</span>
+                                            <span class="project-tag">OpenStreetMa</span>
+                                            <span class="project-tag">GIS</span>
+                                            <span class="project-tag">Geospatial Data</span>
+                                            <span class="project-tag">Parquet</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://zenodo.org/records/4284076#.X8VIHbMo_IW" target="_blank" class="project-link">
+                                                <i class="fa fa-database" aria-hidden="true"></i> Zenodo
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="project-image">
+                                        <img src="https://images.unsplash.com/photo-1694859239675-1624919d29e6?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recognising Traffic Signs using Computer Vision">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Recognising Traffic Signs using Computer Vision</h3>
+                                        <p> Developed a deep learning model to recognise and classify traffic signs using convolutional neural networks (CNNs). The project included data augmentation, model building with TensorFlow/Keras, training, and evaluation on a labeled traffic sign dataset. Achieved high accuracy in classifying multiple traffic sign categories, demonstrating the potential for real-world autonomous driving applications.</p>
+                                        <div class="project-tags">
+                                            <span class="project-tag">Python</span>
+                                            <span class="project-tag">Deep Learning</span>
+                                            <span class="project-tag">Computer Vision</span>
+                                            <span class="project-tag">Traffic Sign Recognition</span>
+                                            <span class="project-tag">CNN</span>
+                                            <span class="project-tag">TensorFlow</span>
+                                            <span class="project-tag">Keras</span>
+                                            <span class="project-tag">Image Classification</span>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Bashinim/Projects/blob/main/Recognising%20Traffic%20Signs%20Using%20Deep%20Learning.ipynb" target="_blank" class="project-link">
+                                                <i class="fab fa-github"></i> GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Education Tab -->
+                        <div class="tab-pane" id="education">
+                            <div class="education-grid">
+                                <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="education-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h3>MSc in Data Science</h3>
+                                        <div class="education-meta">
+                                            <div><a href="https://www.uni-potsdam.de/en/studium/what-to-study/master/data-science" target="_blank">University of Potsdam - Germany</a></div>
+                                            <div class="gpa-detail">Overall Grading: 1.8 (German Scale)</div>
+                                            <div>11/2018 - 01/2022</div>
+                                        </div>
+                                        <li>Specialized in machine learning and artificial intelligence with a thesis on "Analysing vehicle parking lots from aerial images using deep learning methods".</li>
+                                        <li>Was awarded a DAAD degree completion scholarship, University of Potsdam. This scholarship provides up to three grants per semester to foreign undergraduate and graduate students at the University of Potsdam, for those who have good academic standing and are engaged in extra-curricular activities.</li>
+                                    </div>
+                                </div>
+                                <div class="education-card" data-aos="fade-up" data-aos-delay="150">
+                                    <div class="education-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h3>BSc Honours in Physics</h3>
+                                        <div class="education-meta">
+                                            <div><a href="https://science.cmb.ac.lk/undergraduate-programmes/internal-bsc-programmes/bsc-honours-in-physics/" target="_blank"> University of Colombo - Sri Lanka</a></div>
+                                            <div class="gpa-detail">GPA: 3.28 (US Scale )</div>
+                                            <div>01/2013 - 02/2017</div>
+                                        </div>
+                                        <li>This programme provides comprehensive knowledge across core physics areas with a strong emphasis on experimental skills.</li>
+                                        <li>Completed final thesis on "Non‑destructive real‑time fruit firmness testing using piezoelectric sensors".</li>
+                                        </div>
+                                </div>
+                                <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="education-icon">
+                                        <i class="fas fa-certificate"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h3>Professional Certificate in Management Consultancy</h3>
+                                        <div class="education-meta">
+                                            <div><a href="https://www.aicpa-cima.com/resources/landing/cgma-framework" target="_blank">The Chartered Institute of Management Accountants (CIMA); London, UK</a></div>
+                                            <div class="gpa-detail">Passed Finalist</div>
+                                            <div>2015</div>
+                                        </div>
+
+                                        <li>Successfully completed all professional exams in management accounting, financial strategy, risk management, and business leadership. </li>
+                                        <li>Developed advanced skills in budgeting, forecasting, performance management, and strategic decision-making.</li>
+                                        <li>Gained expertise in analyzing financial statements, managing business risks, and supporting organizational growth.</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <!-- Publications Tab -->
+                        <div class="tab-pane" id="publications">
+                            <div class="publications-grid">
+                                <div class="publication-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="publication-image">
+                                        <img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-031-48232-8_20/MediaObjects/549545_1_En_20_Fig4_HTML.png" alt="On-Street-Parking-Mapping">
+                                    </div>
+                                    <div class="publication-content">
+                                        <h3>Sustainable On-Street Parking Mapping with Deep Learning and Airborne Imagery</h3>
+                                        <div class="publication-meta">
+                                            <span>Intelligent Data Engineering and Automated Learning – IDEAL</span>
+                                            <span>2023</span>
+                                        </div>
+                                        <p>This published research introduces a novel deep learning-based methodology for accurately mapping on-street parking occupancy using high-resolution airborne imagery. To overcome common challenges such as vehicle occlusion, the model’s performance was significantly enhanced by fusing visual data with Near-Infrared (NIR) and Lidar-derived information, which drastically improves detection under tree canopies. The system also incorporates advanced post-processing algorithms to systematically reduce false positives, ensuring a high-fidelity and reliable final parking map.</p>
+                                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-48232-8_20" target="_blank" class="btn btn-secondary">Read Paper</a>
+                                    </div>
+                                </div>
+                                <div class="publication-card" data-aos="fade-up" data-aos-delay="150">
+                                    <div class="publication-image">
+                                        <img src="http://viduketha.nsf.gov.lk:8585/vidslaas/2017/946E1.pdf" alt="On-Street-Parking-Mapping">
+                                    </div>
+                                    <div class="publication-content">
+                                        <h3>Non‑destructive real‑time fruit firmness testing using piezoelectric sensors</h3>
+                                        <div class="publication-meta">
+                                            <span>Sri Lanka Association for the Advancement of Science, Proceedings of the 73rd Annual Sessions</span>
+                                            <span>2017</span>
+                                        </div>
+                                        <p>This research study focused on the design and construction of a novel mechanical device engineered for the non-destructive measurement of fruit ripeness. The findings from this work were presented as a poster, which was subsequently recognised with the award for Best Poster Presentation in the Physical Sciences.</p>
+                                        <a href="http://viduketha.nsf.gov.lk:8585/vidslaas/2017/946E1.pdf" target="_blank" class="btn btn-secondary">Read Abstract</a>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                        
+                        <!-- Certifications Tab -->
+                        <div class="tab-pane" id="certifications">
+                            <div class="certifications-grid">
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-aws"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Data Analytics and Databases on AWS</h3>
+                                        <p><a href="https://aws.amazon.com/training/learn-about/data-analytics/" target="_blank">AWS Skill Builder</a></p>
+                                        <a href="https://drive.google.com/file/d/14fXIK0w-jHEb4Q8enc91CJVSw2wauU2q/view?usp=drive_link" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> View Certificate
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="150">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-aws"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Building Data Lakes on AWS</h3>
+                                        <p><a href="https://aws.amazon.com/training/learn-about/data-analytics/" target="_blank">AWS Skill Builder</a></p>
+                                        <a href="https://drive.google.com/file/d/14fti6iqC_vQMI7w00t1w2zybJoQtO7-B/view?usp=drive_link" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> View Certificate
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-microsoft"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Power Platform Fundamentals</h3>
+                                        <p><a href="https://learn.microsoft.com/en-us/certifications/power-platform-fundamentals/" target="_blank">Microsoft Credentials</a></p>
+                                        <a href="https://drive.google.com/file/d/14_Y5XrzZeAAdP6pMdn0-xgOoZcPWF8b6/view?usp=drive_link" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> View Certificate
+                                    </div>
+                                </div>
+                                <div class="certification-card" data-aos="fade-up" data-aos-delay="250">
+                                    <div class="certification-icon">
+                                        <i class="fab fa-java"></i>
+                                    </div>
+                                    <div class="certification-content">
+                                        <h3>Java Application Developer</h3>
+                                        <p><a href="https://www.javainstitute.org/" target="_blank">Java Institute for Advanced Technology</a></p>
+                                        <a href="https://drive.google.com/file/d/14YGQnXbybxhu8_h5Q8E-wCMKm1hZkw53/view" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> View Certificate
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Contact Me</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <div class="masked-info">
+                                    <button class="reveal-btn" id="contactRevealEmail">Click to reveal email</button>
+                                    <span class="hidden-info" id="contactHiddenEmail">bashinim2011@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <div class="masked-info">
+                                    <button class="reveal-btn" id="contactRevealPhone">Click to reveal phone</button>
+                                    <span class="hidden-info" id="contactHiddenPhone">(+49)15226831682</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Location</h3>
+                                <p>Berlin, Germany</p>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="https://linkedin.com/in/Bashinim" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/bashinim" target="_blank" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form" data-aos="fade-left" data-aos-delay="100">
+                        <form id="contactForm" action="https://formspree.io/f/mblydbee" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">BM</div>
+                    <div class="footer-text">
+                        <p>&copy; <span id="current-year"></span> Bashini Mahaarachchi. All rights reserved.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to top button -->
+        <button id="backToTop" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
