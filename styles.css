@@ -736,7 +736,6 @@ section {
 .publication-card {
     background-color: var(--card-background);
     border-radius: var(--border-radius);
-    padding: 30px;
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
@@ -744,6 +743,7 @@ section {
 
 .publication-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(138, 79, 255, 0.2);
 }
 
 .publication-image {
