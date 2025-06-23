@@ -765,7 +765,7 @@ section {
 }
 
 .publication-content {
-    padding: 25px; /* ADD THIS LINE to match project-content */
+    padding: 25px; 
 }
 
 .publication-content h3 {
@@ -880,13 +880,9 @@ section {
 .certification-card {
     background-color: var(--card-background);
     border-radius: var(--border-radius);
-    padding: 25px;
+    overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
 .certification-card:hover {
