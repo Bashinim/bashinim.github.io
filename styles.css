@@ -764,6 +764,10 @@ section {
     transform: scale(1.05);
 }
 
+.publication-content {
+    padding: 25px; /* ADD THIS LINE to match project-content */
+}
+
 .publication-content h3 {
     color: var(--secondary-color);
     padding: 25px;
