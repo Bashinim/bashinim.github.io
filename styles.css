@@ -727,10 +727,19 @@ section {
 
 /* ADD this new CSS rule */
 .education-curriculum-link {
-    display: flex; /* Make this a flex container */
-    justify-content: space-between; /* To push the link to the right */
-    width: 100%; /* Ensure it takes full width of its parent */
+    display: inline-flex; /* Use inline-flex to keep it inline but allow flex properties */
+    align-items: center; /* Vertically centers the icon and text */
+    gap: 5px; /* Adds space between the icon and the text */
+    color: var(--secondary-color );
+    font-weight: 500;
+    transition: var(--transition);
+    margin-top: 5px; /* Add some space from the item above */
     margin-bottom: 5px; /* Add some space below this line */
+}
+
+.education-curriculum-link:hover {
+    color: var(--dark-color);
+    transform: translateY(-2px);
 }
 
 /* Publications */
