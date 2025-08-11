@@ -1262,9 +1262,10 @@ section {
 
 @media screen and (max-width: 768px) {
     .hero {
-        height: auto;
-        min-height: 0;
-        padding: 120px 20px 60px 20px; /* Added 20px left/right padding for small screens */
+        display: block; /* CHANGE to block to remove flexbox alignment issues */
+        height: auto;   /* Let content define the height */
+        min-height: 0;  /* Reset min-height */
+        padding: 100px 20px; /* Adjust padding for top/bottom and left/right */
     }
     .nav-links {
         position: fixed;
