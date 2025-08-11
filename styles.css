@@ -274,12 +274,14 @@ section {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh; /* CHANGED from height to min-height */
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
     background-color: var(--primary-color);
+    padding-top: 80px; /* ADDED padding to account for the fixed navbar */
+    padding-bottom: 40px; /* ADDED padding for bottom spacing */
 }
 
 .hero-content {
@@ -1239,6 +1241,12 @@ section {
 
 /* Responsive Styles */
 @media screen and (max-width: 992px) {
+   .hero { /* ADD THIS RULE */
+        padding-top: 120px; /* Increase top padding for mobile to push content down */
+        padding-bottom: 60px; /* Increase bottom padding */
+        align-items: flex-start; /* Align items to the top instead of center */
+    }
+
     .hero-content {
         flex-direction: column;
         text-align: center;
@@ -1246,7 +1254,7 @@ section {
 
     .hero-text {
         padding-right: 0;
-        margin-bottom: 50px;
+        margin-bottom: 60px; /* INCREASED margin to give more space above the image */
     }
 
     .hero-buttons {
@@ -1288,12 +1296,6 @@ section {
 
     .hamburger {
         display: block;
-    }
-    
-    .hero {
-        height: auto; /* Allow height to be determined by content */
-        padding-top: 120px; /* Add padding to the top to push content down from the navbar */
-        padding-bottom: 60px; /* Add some space at the bottom */
     }
 
     .hero-text h1 {
