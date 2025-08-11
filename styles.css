@@ -1095,7 +1095,13 @@ section {
     background-color: var(--accent-color);
     transform: translateY(-2px);
 }
-
+@media screen and (max-width: 768px) {
+    .hero {
+        height: auto; /* Allow height to be determined by content */
+        padding-top: 120px; /* Add padding to the top to push content down from the navbar */
+        padding-bottom: 60px; /* Add some space at the bottom */
+    }
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
