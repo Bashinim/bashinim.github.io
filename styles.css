@@ -1241,13 +1241,6 @@ section {
 
 /* Responsive Styles */
 @media screen and (max-width: 992px) {
-   .hero {
-        height: auto; /* This is the most important change. It overrides min-height and lets the content define the height. */
-        min-height: 0; /* Explicitly reset min-height for mobile. */
-        padding: 120px 0 60px 0; /* Add padding: Top, Right, Bottom, Left. This creates space. */
-        align-items: flex-start; /* Align content to the top. */
-    }
-
     .hero-content {
         flex-direction: column;
         text-align: center;
@@ -1268,6 +1261,11 @@ section {
 }
 
 @media screen and (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 0;
+        padding: 120px 20px 60px 20px; /* Added 20px left/right padding for small screens */
+    }
     .nav-links {
         position: fixed;
         top: 0;
