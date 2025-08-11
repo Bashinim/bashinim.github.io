@@ -1241,10 +1241,11 @@ section {
 
 /* Responsive Styles */
 @media screen and (max-width: 992px) {
-   .hero { /* ADD THIS RULE */
-        padding-top: 120px; /* Increase top padding for mobile to push content down */
-        padding-bottom: 60px; /* Increase bottom padding */
-        align-items: flex-start; /* Align items to the top instead of center */
+   .hero {
+        height: auto; /* This is the most important change. It overrides min-height and lets the content define the height. */
+        min-height: 0; /* Explicitly reset min-height for mobile. */
+        padding: 120px 0 60px 0; /* Add padding: Top, Right, Bottom, Left. This creates space. */
+        align-items: flex-start; /* Align content to the top. */
     }
 
     .hero-content {
@@ -1254,7 +1255,7 @@ section {
 
     .hero-text {
         padding-right: 0;
-        margin-bottom: 60px; /* INCREASED margin to give more space above the image */
+        margin-bottom: 50px; /* This provides space between the text/buttons and your image. */
     }
 
     .hero-buttons {
